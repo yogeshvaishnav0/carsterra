@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR'S TERRA | Premium Auto Detailing Bhopal</title>
+    <meta name="description" content="Car's Terra Bhopal: One Stop For Perfect Finish. Ceramic Coating, PPF, Car Wash, Denting Painting, and more.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #ff3b3b; /* Sporty Red */
+            --dark: #0f0f0f;
+            --dark-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --gradient: linear-gradient(135deg, #ff3b3b 0%, #a80000 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: 'Exo 2', sans-serif; text-transform: uppercase; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { width: 100%; display: block; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(15, 15, 15, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; font-size: 0.9rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-nav {
+            background: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        .btn-nav:hover { background: white; color: var(--primary); }
+
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-gray); max-width: 600px; }
+
+        .btn-group { display: flex; gap: 1rem; }
+        
+        .btn {
+            padding: 12px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+        .btn-primary { background: var(--gradient); border: 2px solid transparent; color: white; }
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 59, 59, 0.4); }
+        .btn-outline:hover { background: white; color: black; }
+
+        /* --- SERVICES GRID --- */
+        .section { padding: 5rem 5%; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .section-header .line { height: 4px; width: 80px; background: var(--primary); margin: 0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .service-card p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* --- GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+        .gallery-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- CONTACT & MAP --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+        .contact-info, .map-box { flex: 1; min-width: 300px; }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .info-item i { font-size: 1.5rem; margin-right: 1.5rem; color: var(--primary); }
+        .info-item h4 { margin-bottom: 0.2rem; }
+        .info-item p { color: var(--text-gray); }
+
+        .social-row { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-btn {
+            width: 50px; height: 50px;
+            background: var(--dark-card);
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            border: 1px solid #333;
+        }
+        .social-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: black;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        /* --- FLOATING WHATSAPP --- */
+        .float-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 2rem;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        .float-wa:hover { background-color: #1ebe57; transform: scale(1.1); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: var(--dark);
+                height: 90vh;
+                width: 70%;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 4rem;
+                transition: 0.4s;
+                border-left: 1px solid #333;
+            }
+            .nav-links.active { right: 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CAR'S <span>TERRA</span></div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#services" onclick="toggleMenu()">Services</a>
+            <a href="#gallery" onclick="toggleMenu()">Work Gallery</a>
+            <a href="#location" onclick="toggleMenu()">Locate Us</a>
+            <a href="tel:+919589957115" class="btn-nav">Call Now</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>One Stop For <br><span>Perfect Finish</span></h1>
+        <p>Expert Detailing, Ceramic Coating, and Mechanical Services in Bhopal.</p>
+        <div class="btn-group">
+            <a href="tel:+919589957115" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call +91 95899 57115</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="section-header">
+            <h2>Our <span>Services</span></h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-shower"></i>
+                <h3>Car Wash / Deep Cleaning</h3>
+                <p>Thorough exterior & interior cleaning.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Ceramic Coating</h3>
+                <p>Long-lasting shine & UV resistance.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-atom"></i>
+                <h3>Graphene Coating</h3>
+                <p>Advanced nanotechnology protection.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>Paint Protection Film (PPF)</h3>
+                <p>Self-healing film against scratches.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-couch"></i>
+                <h3>Interior Cleaning</h3>
+                <p>Leather care, dry cleaning & sanitization.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spray-can"></i>
+                <h3>Rubbing & Buffing</h3>
+                <p>Restore paint clarity & glass polishing.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Paint Correction</h3>
+                <p>Remove swirls and scratches perfectly.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-car-crash"></i>
+                <h3>Denting & Painting</h3>
+                <p>Professional color matching & repairs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-oil-can"></i>
+                <h3>Engine Detox</h3>
+                <p>Engine bay degreasing and dressing.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Mechanical Work</h3>
+                <p>General service and mechanical repairs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-star"></i>
+                <h3>Car Decor</h3>
+                <p>Accessories and aesthetic upgrades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section" style="background: #151515;">
+        <div class="section-header">
+            <h2>Work <span>Gallery</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600" alt="Car Detail"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552945283-a9c27702670e?w=600" alt="Ceramic Coating"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1626998651816-724391a83307?w=600" alt="Interior Cleaning"></div>
+        </div>
+    </section>
+
+    <section id="location" class="section">
+        <div class="section-header">
+            <h2>Find <span>Us</span></h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Bawadiya Kalan, Near Indus Garden Phase-II,<br>Bhopal, Madhya Pradesh - 462026</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone Support</h4>
+                        <p><a href="tel:+919589957115">+91 95899 57115</a></p>
+                        <p><a href="tel:+917509171556">+91 75091 71556</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="far fa-clock"></i>
+                    <div>
+                        <h4>Opening Hours</h4>
+                        <p>Mon - Sun: 09:00 AM - 08:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="social-row">
+                    <a href="https://www.instagram.com/cars.terra5/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@CarsTerra-5" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919589957115" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="map-box">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.498877568586!2d77.4419!3d23.1886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDExJzE5LjAiTiA3N8KwMjYnMzAuOCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
+                    width="100%" height="450" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy">
+                </iframe>
+                <small style="color: grey; display: block; margin-top: 10px;">*Map centered on Bawadiya Kalan / Indus Garden Area</small>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CAR'S TERRA. All Rights Reserved.</p>
+        <p style="color: #555; font-size: 0.8rem; margin-top: 5px;">Designed for Excellence</p>
+    </footer>
+
+    <a href="https://wa.me/919589957115" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
